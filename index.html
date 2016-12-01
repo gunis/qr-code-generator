@@ -6,77 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	
     <title>QR code generator</title>
+	<meta name="description" content="generate your own QR code quickly and easily">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+	<!-- Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="assets/css/main.css?v=1-1-1">
+
+	<link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
-	<input id="qr-code-data" type="text" value="ale hybaj richard!!" />
-    <div id="qr-code-cover"></div>
+	<div class="container">
+		<div class="page-header">
+			<h1>
+				<i class="fa fa-fw fa-qrcode text-info" aria-hidden="true"></i>
+	            QR code generator
+	            <small>v1.1.1</small>
+	        </h1>
+	        <p>
+	            generate your own QR code quickly and easily
+	        </p>
+	    </div>
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="panel panel-info">
+				<div class="panel-heading text-center clearfix">
+					<div class="form-group col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-12">
+						<div class="input-group">
+							<div class="input-group-addon">Enter text:</div>
+							<input id="qr-code-data" class="form-control" type="text" value="ale hybaj richard!!" />
+						</div>
+					</div>
+		        </div>            
+	            <div class="panel-body text-center">
+					<div id="qr-code-cover"></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<span>Powered by:</span>
+				<i class="fa fa-hashtag" aria-hidden="true"></i><a target="_blank" href="http://fontawesome.io/icons/" title="Font Awesome 4.6.3">FontAwesome</a>
+				<i class="fa fa-hashtag" aria-hidden="true"></i><a target="_blank" href="http://getbootstrap.com/" title="Bootstrap">Bootstrap</a>
+				<i class="fa fa-hashtag" aria-hidden="true"></i><a target="_blank" href="https://jquery.com/" title="jQuery">jQuery</a>
+				<i class="fa fa-hashtag" aria-hidden="true"></i><a target="_blank" href="https://larsjung.de/jquery-qrcode/" title="jQuery.qrcode">jQuery.qrcode</a>
+			</div>
+			<div class="pull-right">
+				<span>Created by:</span>
+				<a target="_blank" href="http://gunis.sk" title="gunis | sk * Freelancer &amp; Webdeveloper">Juraj Guniš</a>
+			</div>
+		</div>
+	</footer>
 
     <!-- jquery.min.js -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- jquery-qrcode.min.js -->
     <script src="bower_components/jquery-qrcode/dist/jquery-qrcode.min.js"></script>
-	<script>
-		$(function ($) {
-			var options = {
-				// render method: 'canvas', 'image' or 'div'
-				render: 'image',
-
-				// version range somewhere in 1 .. 40
-				minVersion: 1,
-				maxVersion: 40,
-
-				// error correction level: 'L', 'M', 'Q' or 'H'
-				ecLevel: 'L',
-
-				// offset in pixel if drawn onto existing canvas
-				left: 0,
-				top: 0,
-
-				// size in pixel
-				size: 200,
-
-				// code color or image element
-				fill: '#000',
-
-				// background color or image element, null for transparent background
-				background: null,
-
-				// content
-				text: $('#qr-code-data').val(),
-
-				// corner radius relative to module width: 0.0 .. 0.5
-				radius: 0,
-
-				// quiet zone in modules
-				quiet: 0,
-
-				// modes
-				// 0: normal
-				// 1: label strip
-				// 2: label box
-				// 3: image strip
-				// 4: image box
-				mode: 2,
-
-				mSize: 0.1,
-				mPosX: 0.5,
-				mPosY: 0.5,
-
-				label: $('#qr-code-data').val(),
-				fontname: 'Ubuntu',
-				fontcolor: '#FF6600',
-
-				image: null
-			};
-			$('#qr-code-cover').qrcode(options);
-
-			$('#qr-code-data').keyup(function() {
-				options['label'] = options['text'] = $('#qr-code-data').val();
-				$('#qr-code-cover')
-					.html('')
-					.qrcode(options);
-			});
-		});
-	</script>
+	<!-- main.js -->
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
