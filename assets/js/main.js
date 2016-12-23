@@ -1,7 +1,10 @@
 $(function () {
+	var dataInputSelector = '#qr-code-data';
+	var dataInput = $(dataInputSelector);
+	var canvasIdentifier = 'canvas-id';
 	var options = {
 		// render method: 'canvas', 'image' or 'div'
-		render: 'image',
+		render: 'canvas',
 
 		// version range somewhere in 1 .. 40
 		minVersion: 1,
@@ -24,7 +27,7 @@ $(function () {
 		background: null,
 
 		// content
-		text: $('#qr-code-data').val(),
+		text: dataInput.val(),
 
 		// corner radius relative to module width: 0.0 .. 0.5
 		radius: 0,
@@ -44,18 +47,29 @@ $(function () {
 		mPosX: 0.5,
 		mPosY: 0.5,
 
-		label: $('#qr-code-data').val(),
+		label: dataInput.val(),
 		fontname: 'Ubuntu',
 		fontcolor: '#FF6600',
 
 		image: null
 	};
+
 	$('#qr-code-cover').qrcode(options);
 
-	$('#qr-code-data').keyup(function() {
-		options['label'] = options['text'] = $('#qr-code-data').val();
+	var downloadCanvas = function(link, filename) {
+		$('#qr-code-cover canvas').attr('id', canvasIdentifier)
+		link.href = document.getElementById(canvasIdentifier).toDataURL();
+		link.download = filename;
+	}
+
+	dataInput.keyup(function() {
+		options['label'] = options['text'] = dataInput.val();
 		$('#qr-code-cover')
 			.html('')
 			.qrcode(options);
+	});
+
+	$('#download-btn').on('click', function() {
+		downloadCanvas(this, 'qr-code.png');
 	});
 });

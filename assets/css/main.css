@@ -4,6 +4,16 @@
 	margin-bottom: 0px;
 }
 
+.panel .panel-body {
+	position:relative;
+}
+
 footer .btn-gunis {
 	padding-left:0px;
+}
+
+#download-btn {
+	position:absolute;
+	right:0px;
+	top:0px;
 }
