@@ -6,12 +6,11 @@ $(function () {
 		// render method: 'canvas', 'image' or 'div'
 		render: 'canvas',
 
-		// version range somewhere in 1 .. 40
-		minVersion: 1,
-		maxVersion: 40,
+		// version range somewhere in 1 .. 10
+		minVersion: 5,
 
 		// error correction level: 'L', 'M', 'Q' or 'H'
-		ecLevel: 'L',
+		ecLevel: 'H',
 
 		// offset in pixel if drawn onto existing canvas
 		left: 0,
@@ -24,7 +23,7 @@ $(function () {
 		fill: '#000',
 
 		// background color or image element, null for transparent background
-		background: null,
+		background: '#FFFFFF',
 
 		// content
 		text: dataInput.val(),
